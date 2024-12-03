@@ -15,4 +15,6 @@ public class Controller {
     public void listarIdsXogos(HibernateCrud crud, MetodosXogo metodosXogo){
         metodosXogo.listarIdXogos(crud.xogosIdList());
     }
+
+
 }

@@ -1,6 +1,7 @@
 package service.crud;
 
 import config.HibernateConfig;
+import model.Inventariotenda;
 import model.Xogo;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -36,5 +37,16 @@ public class HibernateCrud {
         }
 
         return xogosIdList;
+    }
+
+    public Xogo getXogoFromDb(int id){
+        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            Xogo xogo = session.get(Xogo.class, id);
+            transaction.commit();
+
+            return xogo;
+        }
     }
 }
