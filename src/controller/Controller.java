@@ -26,5 +26,11 @@ public class Controller {
         leXML.writeXmlXogo(crud.getXogosFromDb(), path);
     }
 
+    public void updateXogosTenda(HibernateCrud crud, Integer prezoPorcentaxeOferta){
+        for(int i = 1; i < 4; i++){
+            crud.updatePrezoOfertaInventarioTenda(i, prezoPorcentaxeOferta);
+        }
+    }
+
 
 }

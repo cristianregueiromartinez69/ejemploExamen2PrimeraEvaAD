@@ -4,6 +4,8 @@ import service.ficheros.LecturaEscrituraXML;
 import service.metodosclases.MetodosInventarioTenda;
 import service.metodosclases.MetodosXogo;
 
+import java.math.BigDecimal;
+
 public class Main {
     public static void main(String[] args) {
         MetodosXogo metodosXogo = new MetodosXogo();
@@ -15,6 +17,9 @@ public class Main {
         //controller.inserccionesXogos(crud, metodosXogo.xogosList());
         //controller.listarIdsXogos(crud, metodosXogo);
         //controller.inserccionesInventarioTenda(crud, metodosInventarioTenda.inventariotendaList(crud));
-        controller.writeXmlXogo(leXML, crud, "xogos.xml");
+        //controller.writeXmlXogo(leXML, crud, "xogos.xml");
+
+        controller.updateXogosTenda(crud, 40);
+
     }
 }

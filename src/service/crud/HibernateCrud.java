@@ -6,6 +6,7 @@ import model.Xogo;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,6 +76,22 @@ public class HibernateCrud {
             transaction.commit();
 
             System.out.println("Juego metido en la base de datos de inventario tienda correctamente");
+        }
+    }
+
+    public void updatePrezoOfertaInventarioTenda(Integer id, Integer newPrezoPorcentaxeOferta){
+        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            Inventariotenda xogo = session.get(Inventariotenda.class, id);
+
+            if(xogo != null){
+                int oldPorcentaxeOferta = xogo.getPorcentaxeoferta();
+                xogo.setPorcentaxeoferta(oldPorcentaxeOferta + newPrezoPorcentaxeOferta);
+            }
+            transaction.commit();
+
+            System.out.println("precio oferta del juego de la tienda modificado correctamnete");
         }
     }
 }
