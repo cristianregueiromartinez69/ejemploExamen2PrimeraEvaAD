@@ -12,7 +12,7 @@ import java.util.List;
 
 public class LecturaEscrituraXML {
 
-    public void writeXmlXogo(List<Xogo> xogoList){
+    public void writeXmlXogo(List<Xogo> xogoList, String path){
         XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newInstance();
 
         try{
