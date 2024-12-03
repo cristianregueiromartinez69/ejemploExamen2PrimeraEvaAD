@@ -107,6 +107,22 @@ public class HibernateCrud {
         }
     }
 
+    public void restartOfertaInventarioTenda(Integer id, Integer newPrezoPorcentaxeOferta){
+        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            session.createQuery("UPDATE Inventariotenda p SET p.porcentaxeoferta = :newPrezoPorcentaxeOferta WHERE p.idxogo = :id")
+                            .setParameter("id", id)
+                            .setParameter("newPrezoPorcentaxeOferta", newPrezoPorcentaxeOferta)
+                            .executeUpdate();
+
+            transaction.commit();
+
+            System.out.println("Precio oferta de xogo restaurado correctamente");
+            System.out.println("FIN OFERTAS DE STEAM");
+        }
+    }
+
 
 
 

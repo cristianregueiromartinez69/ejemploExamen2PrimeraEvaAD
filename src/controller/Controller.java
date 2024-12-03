@@ -37,5 +37,12 @@ public class Controller {
         System.out.println("Precio actual del Zelda: Ocarina of Time: " + metodosInventarioTenda.getPrezoActualZelda(crud.getInventariotendaFromDb(1)) + "€");
     }
 
+    public void updatePorcentajesOfertasByXml(HibernateCrud crud, LecturaEscrituraXML leXML, String path){
+        List<Xogo> xogoList = leXML.getXogosList(path);
+
+        for(int i = 1; i < 4; i++){
+            crud.restartOfertaInventarioTenda(xogoList.get(i).getId(), );
+        }
+    }
 
 }

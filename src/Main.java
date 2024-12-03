@@ -21,7 +21,9 @@ public class Main {
         System.out.println("OFERTAS STEAM");
         //controller.updateXogosTenda(crud, 40);
 
-        controller.prezoActualZelda(crud, metodosInventarioTenda);
+        //controller.prezoActualZelda(crud, metodosInventarioTenda);
+
+
 
 
 
