@@ -3,6 +3,7 @@ package controller;
 import model.Inventariotenda;
 import model.Xogo;
 import service.crud.HibernateCrud;
+import service.ficheros.LecturaEscrituraXML;
 import service.metodosclases.MetodosXogo;
 
 import java.util.List;
@@ -19,6 +20,10 @@ public class Controller {
 
     public void inserccionesInventarioTenda(HibernateCrud crud, List<Inventariotenda> inventariotendaList){
         crud.insertarDatosInventarioTendaDB(inventariotendaList);
+    }
+
+    public void writeXmlXogo(LecturaEscrituraXML leXML, HibernateCrud crud, String path){
+        leXML.writeXmlXogo(crud.getXogosFromDb(), path);
     }
 
 

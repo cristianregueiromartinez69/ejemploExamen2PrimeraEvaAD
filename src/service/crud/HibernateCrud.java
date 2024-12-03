@@ -50,6 +50,20 @@ public class HibernateCrud {
         }
     }
 
+    public List<Xogo> getXogosFromDb(){
+        List<Xogo> xogosList = new ArrayList<>();
+
+        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            xogosList = session.createQuery("from Xogo", Xogo.class).getResultList();
+
+            transaction.commit();
+
+        }
+        return xogosList;
+    }
+
     public void insertarDatosInventarioTendaDB(List<Inventariotenda> inventariotendaList){
         try(Session session = HibernateConfig.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
