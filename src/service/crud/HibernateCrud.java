@@ -49,4 +49,18 @@ public class HibernateCrud {
             return xogo;
         }
     }
+
+    public void insertarDatosInventarioTendaDB(List<Inventariotenda> inventariotendaList){
+        try(Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            for(Inventariotenda xogo : inventariotendaList){
+                session.save(xogo);
+            }
+
+            transaction.commit();
+
+            System.out.println("Juego metido en la base de datos de inventario tienda correctamente");
+        }
+    }
 }
