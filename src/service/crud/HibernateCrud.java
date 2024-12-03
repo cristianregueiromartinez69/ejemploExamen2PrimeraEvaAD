@@ -40,6 +40,8 @@ public class HibernateCrud {
         return xogosIdList;
     }
 
+
+
     public Xogo getXogoFromDb(int id){
         try (Session session = HibernateConfig.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();

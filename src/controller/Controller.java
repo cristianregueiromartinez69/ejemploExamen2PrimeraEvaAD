@@ -27,6 +27,14 @@ public class Controller {
         leXML.writeXmlXogo(crud.getXogosFromDb(), path);
     }
 
+    public void writeXmlInventario(LecturaEscrituraXML leXML, HibernateCrud crud, MetodosInventarioTenda metodosInventarioTenda, String path){
+        leXML.writeXmlXogoInventario(metodosInventarioTenda.inventariotendaList(crud), path);
+    }
+
+    public void readXmlInventario(LecturaEscrituraXML leXML, HibernateCrud crud, String path){
+        leXML.getXogosXmlInventarioList(path, crud);
+    }
+
     public void updateXogosTenda(HibernateCrud crud, Integer prezoPorcentaxeOferta){
         for(int i = 1; i < 4; i++){
             crud.updatePrezoOfertaInventarioTenda(i, prezoPorcentaxeOferta);
@@ -38,11 +46,8 @@ public class Controller {
     }
 
     public void updatePorcentajesOfertasByXml(HibernateCrud crud, LecturaEscrituraXML leXML, String path){
-        List<Xogo> xogoList = leXML.getXogosList(path);
 
-        for(int i = 1; i < 4; i++){
-            crud.restartOfertaInventarioTenda(xogoList.get(i).getId(), );
-        }
+
     }
 
 }

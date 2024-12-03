@@ -23,6 +23,7 @@ public class Main {
 
         //controller.prezoActualZelda(crud, metodosInventarioTenda);
 
+        //controller.writeXmlInventario(leXML, crud, metodosInventarioTenda, "inventarioTenda.xml");
 
 
 

@@ -157,7 +157,7 @@ public class LecturaEscrituraXML {
         }
     }
 
-    public List<Inventariotenda> getXogosInventarioList(String path, HibernateCrud crud){
+    public List<Inventariotenda> getXogosXmlInventarioList(String path, HibernateCrud crud){
         List<Inventariotenda> xogoList = new ArrayList<>();
 
         String elementoActual = "";
