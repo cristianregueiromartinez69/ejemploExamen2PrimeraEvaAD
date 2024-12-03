@@ -56,4 +56,8 @@ public class Controller {
 
     }
 
+    public void deleteDatos(HibernateCrud crud, String query){
+        crud.deletedataDB(query);
+    }
+
 }

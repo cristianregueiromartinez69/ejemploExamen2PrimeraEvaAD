@@ -139,6 +139,18 @@ public class HibernateCrud {
         }
     }
 
+    public void deletedataDB(String query){
+        try(Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            session.createQuery(query).executeUpdate();
+
+            transaction.commit();
+
+            System.out.println("Bancarrota, las ofertas eran demasiado buenas");
+        }
+    }
+
 
 
 

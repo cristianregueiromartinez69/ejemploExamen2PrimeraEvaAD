@@ -14,24 +14,23 @@ public class Main {
         LecturaEscrituraXML leXML = new LecturaEscrituraXML();
         Controller controller = new Controller();
 
-        //controller.inserccionesXogos(crud, metodosXogo.xogosList());
-        //controller.listarIdsXogos(crud, metodosXogo);
-        //controller.inserccionesInventarioTenda(crud, metodosInventarioTenda.inventariotendaList(crud));
-        //controller.writeXmlXogo(leXML, crud, "xogos.xml");
+        controller.inserccionesXogos(crud, metodosXogo.xogosList());
+        controller.listarIdsXogos(crud, metodosXogo);
+        controller.inserccionesInventarioTenda(crud, metodosInventarioTenda.inventariotendaList(crud));
+        controller.writeXmlXogo(leXML, crud, "xogos.xml");
         System.out.println("OFERTAS STEAM");
-        //controller.updateXogosTenda(crud, 40);
+        controller.updateXogosTenda(crud, 40);
 
-        //controller.prezoActualZelda(crud, metodosInventarioTenda);
-
-        //controller.writeXmlInventario(leXML, crud, metodosInventarioTenda, "inventarioTenda.xml");
+        controller.prezoActualZelda(crud, metodosInventarioTenda);
 
 
-
-        //controller.readXMlXogos(leXML, "xogos.xml");
+        controller.readXMlXogos(leXML, "xogos.xml");
 
         controller.updatePorcentajesOfertasByXml(crud);
         System.out.println("FIN OFERTAS STEAM");
 
+        controller.deleteDatos(crud, "DELETE FROM Inventariotenda");
+        controller.deleteDatos(crud, "DELETE FROM Xogo");
 
 
 
