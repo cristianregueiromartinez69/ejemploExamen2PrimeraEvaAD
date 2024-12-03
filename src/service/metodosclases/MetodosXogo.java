@@ -24,4 +24,10 @@ public class MetodosXogo {
 
         return xogos;
     }
+
+    public void listarIdXogos(List<Integer> xogosId){
+        for(Integer xogoId : xogosId){
+            System.out.println(xogoId);
+        }
+    }
 }
