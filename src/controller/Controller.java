@@ -4,6 +4,7 @@ import model.Inventariotenda;
 import model.Xogo;
 import service.crud.HibernateCrud;
 import service.ficheros.LecturaEscrituraXML;
+import service.metodosclases.MetodosInventarioTenda;
 import service.metodosclases.MetodosXogo;
 
 import java.util.List;
@@ -30,6 +31,10 @@ public class Controller {
         for(int i = 1; i < 4; i++){
             crud.updatePrezoOfertaInventarioTenda(i, prezoPorcentaxeOferta);
         }
+    }
+
+    public void prezoActualZelda(HibernateCrud crud, MetodosInventarioTenda metodosInventarioTenda){
+        System.out.println("Precio actual del Zelda: Ocarina of Time: " + metodosInventarioTenda.getPrezoActualZelda(crud.getInventariotendaFromDb(1)) + "€");
     }
 
 

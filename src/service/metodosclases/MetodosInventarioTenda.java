@@ -24,4 +24,14 @@ public class MetodosInventarioTenda {
         return inventariotendas;
 
     }
+
+    public BigDecimal getPrezoActualZelda(Inventariotenda inventariotenda) {
+        BigDecimal prezoTenda = inventariotenda.getPrezotenda();
+        BigDecimal porcentaxeOferta = BigDecimal.valueOf(inventariotenda.getPorcentaxeoferta());
+
+        BigDecimal factorDesconto = porcentaxeOferta.divide(BigDecimal.valueOf(100));
+
+
+        return prezoTenda.multiply(BigDecimal.ONE.subtract(factorDesconto));
+    }
 }

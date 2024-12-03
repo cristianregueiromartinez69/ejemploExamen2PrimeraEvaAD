@@ -51,6 +51,18 @@ public class HibernateCrud {
         }
     }
 
+    public Inventariotenda getInventariotendaFromDb(int id){
+        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            Inventariotenda xogo = session.get(Inventariotenda.class, id);
+
+            transaction.commit();
+
+            return xogo;
+        }
+    }
+
     public List<Xogo> getXogosFromDb(){
         List<Xogo> xogosList = new ArrayList<>();
 
@@ -94,4 +106,8 @@ public class HibernateCrud {
             System.out.println("precio oferta del juego de la tienda modificado correctamnete");
         }
     }
+
+
+
+
 }

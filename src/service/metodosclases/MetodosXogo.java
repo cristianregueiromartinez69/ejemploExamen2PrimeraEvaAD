@@ -1,13 +1,15 @@
 package service.metodosclases;
 
+import model.Inventariotenda;
 import model.Xogo;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MetodosXogo {
 
-    public List<Xogo> xogosList(){
+    public List<Xogo> xogosList() {
         List<Xogo> xogos = new ArrayList<>();
 
         Xogo xogo1 = new Xogo("zelda: ocarina of time", "nintendo", "aventura épica onde link viaxa no tempo para salvar hyrule");
@@ -25,9 +27,14 @@ public class MetodosXogo {
         return xogos;
     }
 
-    public void listarIdXogos(List<Integer> xogosId){
-        for(Integer xogoId : xogosId){
+    public void listarIdXogos(List<Integer> xogosId) {
+        for (Integer xogoId : xogosId) {
             System.out.println(xogoId);
         }
     }
+
+
 }
+
+
+

@@ -18,8 +18,13 @@ public class Main {
         //controller.listarIdsXogos(crud, metodosXogo);
         //controller.inserccionesInventarioTenda(crud, metodosInventarioTenda.inventariotendaList(crud));
         //controller.writeXmlXogo(leXML, crud, "xogos.xml");
+        System.out.println("OFERTAS STEAM");
+        //controller.updateXogosTenda(crud, 40);
 
-        controller.updateXogosTenda(crud, 40);
+        controller.prezoActualZelda(crud, metodosInventarioTenda);
+
+
+
 
     }
 }
