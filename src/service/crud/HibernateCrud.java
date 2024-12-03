@@ -79,6 +79,20 @@ public class HibernateCrud {
         return xogosList;
     }
 
+    public List<Inventariotenda> getInventariotendasFromDb(){
+        List<Inventariotenda> inventariotendasList = new ArrayList<>();
+
+        try (Session session = HibernateConfig.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+
+            inventariotendasList = session.createQuery("FROM Inventariotenda", Inventariotenda.class).getResultList();
+            transaction.commit();
+
+
+        }
+        return inventariotendasList;
+    }
+
     public void insertarDatosInventarioTendaDB(List<Inventariotenda> inventariotendaList){
         try(Session session = HibernateConfig.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
@@ -113,7 +127,7 @@ public class HibernateCrud {
         try (Session session = HibernateConfig.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
 
-            session.createQuery("UPDATE Inventariotenda p SET p.porcentaxeoferta = :newPrezoPorcentaxeOferta WHERE p.idxogo = :id")
+            session.createQuery("UPDATE Inventariotenda p SET p.porcentaxeoferta = :newPrezoPorcentaxeOferta WHERE p.id = :id")
                             .setParameter("id", id)
                             .setParameter("newPrezoPorcentaxeOferta", newPrezoPorcentaxeOferta)
                             .executeUpdate();

@@ -7,6 +7,7 @@ import service.ficheros.LecturaEscrituraXML;
 import service.metodosclases.MetodosInventarioTenda;
 import service.metodosclases.MetodosXogo;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Controller {
@@ -27,12 +28,13 @@ public class Controller {
         leXML.writeXmlXogo(crud.getXogosFromDb(), path);
     }
 
-    public void writeXmlInventario(LecturaEscrituraXML leXML, HibernateCrud crud, MetodosInventarioTenda metodosInventarioTenda, String path){
-        leXML.writeXmlXogoInventario(metodosInventarioTenda.inventariotendaList(crud), path);
-    }
 
-    public void readXmlInventario(LecturaEscrituraXML leXML, HibernateCrud crud, String path){
-        leXML.getXogosXmlInventarioList(path, crud);
+    public void readXMlXogos(LecturaEscrituraXML leXML, String path){
+       List<Xogo> xogoList = leXML.getXogosList(path);
+
+       for(Xogo x : xogoList){
+           System.out.println(x.toString());
+       }
     }
 
     public void updateXogosTenda(HibernateCrud crud, Integer prezoPorcentaxeOferta){
@@ -45,8 +47,12 @@ public class Controller {
         System.out.println("Precio actual del Zelda: Ocarina of Time: " + metodosInventarioTenda.getPrezoActualZelda(crud.getInventariotendaFromDb(1)) + "€");
     }
 
-    public void updatePorcentajesOfertasByXml(HibernateCrud crud, LecturaEscrituraXML leXML, String path){
+    public void updatePorcentajesOfertasByXml(HibernateCrud crud){
 
+        List<Inventariotenda> idXogos = crud.getInventariotendasFromDb();
+        crud.restartOfertaInventarioTenda(idXogos.getFirst().getId(), 10);
+        crud.restartOfertaInventarioTenda(idXogos.get(1).getId(), 15);
+        crud.restartOfertaInventarioTenda(idXogos.get(2).getId(), 5);
 
     }
 

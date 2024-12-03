@@ -27,6 +27,12 @@ public class Main {
 
 
 
+        //controller.readXMlXogos(leXML, "xogos.xml");
+
+        controller.updatePorcentajesOfertasByXml(crud);
+        System.out.println("FIN OFERTAS STEAM");
+
+
 
 
     }
